@@ -8,75 +8,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 	<title>Visual Vision</title>
 	<style>
-		body{
-			font-family: 'Ubuntu' , sans-serif;
-			font-size: 0.65em;
-			background-color: mintcream;
-		}
-		header{
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-		h2{
-			margin-right: 4%;
-			float: right;	
-		}
-		h1, h2{
-			background-color: lightblue;
-			width: auto;
-			height: 8vh;
-			border: 1px lightblue solid;
-			border-radius: 7px;
-			justify-content: center;
-			align-items: center;
-			margin: 0;
-			padding: 1vh;
-			display: flex;
-		}
-		.site-info{
-			width: 99%;
-			display: flex;	
-			margin-left: 1%;		
-		}
-		.site-info img{
-			height: 40vh;
-			width: 20%;
-			border-radius: 2em;
-			margin-top: 5vh;
-			margin-right: 5%;
-			margin-left: 5%;
-		} 
-		.site-info p{
-			
-			font-size: 2em;
-			margin-top: 5vh;
-			margin-right: 3%;
-			width: 30%;
-		}
-		h3{
-			font-size: 3em;
-			width: 60%;
-			height: 10vh;
-			margin-bottom: 10px;
-			margin-left: 5%;
-			
-		}
-		@media(max-width: 768px){
-			body{
-				font-size: 0.8em;
-			}
-			header {
+		/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 2vw;
+    background-color: #333;
+    color: #fff;
+}
+
+h1 {
+    font-size: 3em;
+    width: 30%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0 2vw;
+}
+
+.site-info {
+    display: flex;
+    align-items: center;
+    margin: 5vh 0;
+}
+
+.site-info img {
+    height: 50vh;
+    margin-right: 5vw;
+}
+
+.site-info p {
+    font-size: 2em;
+    width: 50%;
+}
+
+h3 {
+    font-size: 2em;
+    margin-top: 5vh;
+}
+
+/* Media query for phone view */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.8em;
+    }
+
+    header {
         flex-direction: column;
         align-items: center;
     }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        margin-bottom: 1vh;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
     h1 {
         font-size: 2em;
         width: auto;
         height: 6vh;
         padding: 0.5vh;
-		}
-		h2 {
+        display: none;
+    }
+
+    h1.show {
+        display: block;
+    }
+
+    h2 {
         font-size: 1.2em;
         margin: 0.5vh 0;
     }
@@ -97,22 +132,30 @@
         width: 80%;
         margin: 2vh 0;
     }
-	h3 {
+
+    h3 {
         font-size: 1.5em;
         margin-top: 3vh;
-    }		
-	}
-
+    }
+}
 	</style>
+	<body>
+    
 </head>
 <body>
-	<header>
-		<h1>Visual Vision</h1>
-		<h2>EXPLORE</h2>
+
+		<header>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1 class="show">Visual Vision</h1>
+        <h2>EXPLORE</h2>
 		<h2>PURCHASE A PRODUCT</h2>
 		<h2>SELL A PRODUCT</h2>
 		<h2><a href="contact.html">CONTACT INFO</a></h2>
-	</header>
+    </header>
 	<h3><h3>Welcome to Visual Vision - Discover the Finest in Art.</h3>
 	<div class="site-info">
 		<p>At Visual Vision, we curate a diverse collection of breathtaking artworks from talented creators worldwide. Explore paintings and more with unique expression of artists' vision, infused with technical mastery. Connect with creators, uncover stories, and find that perfect piece. We believe art enriches lives, which is why we make acquiring original artwork smooth. Embark on your artistic journey with us today.</p>
@@ -123,6 +166,15 @@
 		<img src="https://t4.ftcdn.net/jpg/01/14/07/89/360_F_114078967_16B536qO2FnanuH1m5TGKrA4wKdkkyzc.jpg">
 	</div>
 
-   
+   <script>
+        const hamburger = document.querySelector('.hamburger');
+        const h1 = document.querySelector('h1');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            h1.classList.toggle('show');
+        });
+    </script>
+
 </body>
 </html>
