@@ -1,180 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-	<title>Visual Vision</title>
-	<style>
-		/* Global styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <!--<link rel="stylesheet" href="login.css">-->
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1vh 2vw;
-    background-color: #333;
-    color: #fff;
-}
-
-h1 {
-    font-size: 3em;
-    width: 30%;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-}
-
-h2 {
-    font-size: 1.5em;
-    margin: 0 2vw;
-}
-
-.site-info {
-    display: flex;
-    align-items: center;
-    margin: 5vh 0;
-}
-
-.site-info img {
-    height: 50vh;
-    margin-right: 5vw;
-}
-
-.site-info p {
-    font-size: 2em;
-    width: 50%;
-}
-
-h3 {
-    font-size: 2em;
-    margin-top: 5vh;
-}
-
-/* Media query for phone view */
-@media (max-width: 768px) {
-    body {
-        font-size: 0.8em;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        margin-bottom: 1vh;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: #333;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
-    h1 {
-        font-size: 2em;
-        width: auto;
-        height: 6vh;
-        padding: 0.8vh;
-        display: none;
-    }
-
-    h1.show {
-        display: block;
-    }
-
-    h2 {
-        font-size: 1.2em;
-        margin: 0.5vh 0;
-    }
-
-    .site-info {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .site-info img {
-        height: 30vh;
-        width: 80%;
-        margin: 3vh 0;
-    }
-
-    .site-info p {
-        font-size: 1.5em;
-        width: 80%;
-        margin: 2vh 0;
-    }
-
-    h3 {
-        font-size: 1.5em;
-        margin-top: 3vh;
-    }
-}
-	</style>
-	<body>
-    
 </head>
 <body>
-
-		<header>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+  <div class="container">
+    <div class="login-box">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Isuzu.svg/1000px-Isuzu.svg.png" alt="Logo">
+      </div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <span id="usernameError" class="error-message"></span>
         </div>
-        <h1 class="show">Visual Vision</h1>
-        <h2>EXPLORE</h2>
-		<h2>PURCHASE A PRODUCT</h2>
-		<h2>SELL A PRODUCT</h2>
-		<h2><a href="contact.html">CONTACT INFO</a></h2>
-    </header>
-	<h3><h3>Welcome to Visual Vision - Discover the Finest in Art.</h3>
-	<div class="site-info">
-		<p>At Visual Vision, we curate a diverse collection of breathtaking artworks from talented creators worldwide. Explore paintings and more with unique expression of artists' vision, infused with technical mastery. Connect with creators, uncover stories, and find that perfect piece. We believe art enriches lives, which is why we make acquiring original artwork smooth. Embark on your artistic journey with us today.</p>
-
-		<p>Visual Vision provides an exceptional platform for both art enthusiasts and creators. Whether you're looking to expand your art collection or showcase your artistic talents, our website offers services to sell and purchase original works of art. Connect with a global community of similar individuals, discover emerging artists, and unlock the joy of owning or sharing your creativity. Let your passion for art shine.</p>
-
-	
-		<img src="https://t4.ftcdn.net/jpg/01/14/07/89/360_F_114078967_16B536qO2FnanuH1m5TGKrA4wKdkkyzc.jpg">
-	</div>
-
-   <script>
-        const hamburger = document.querySelector('.hamburger');
-        const h1 = document.querySelector('h1');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            h1.classList.toggle('show');
-        });
-    </script>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>
