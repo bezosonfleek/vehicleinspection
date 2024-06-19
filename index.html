@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="csslogin.css">
 
 </head>
 <body>
@@ -22,11 +22,43 @@
         <div class="form-group">
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required>
+          <span id="passwordError" class="error-message"></span>
         </div>
         <button type="submit" class="btn">Login</button>
       </form>
     </div>
   </div>
 
+<script type="text/javascript">
+const form = document.getElementById('loginForm');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const usernameError = document.getElementById('usernameError');
+const passwordError = document.getElementById('passwordError');
+
+const users = {
+  admin: 'Admin#3',
+  user1: 'User1@4'
+};
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (username in users && users[username] === password) {
+    // Login successful
+    window.location.href = "https://github.com/bezosonfleek/vehicleinspection/vehicleinfo.html"; // Redirect to site
+  } else {
+    // Login failed
+    usernameError.style.display = 'block';
+    passwordError.style.display = 'block';
+    passwordError.textContent = 'Invalid username or password!';
+    passwordInput.value = ''; // Clear the password field
+    passwordInput.focus(); // Focus on the password input field
+  }
+});
+</script>
 </body>
 </html>
